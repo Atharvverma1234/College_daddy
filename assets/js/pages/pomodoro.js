@@ -25,6 +25,7 @@ class PomodoroTimer {
         this.display = document.querySelector('.time-display');
         this.phaseDisplay = document.querySelector('.phase-display');
         this.startBtn = document.getElementById('start');
+        this.circleBtn = document.querySelector(".timer-container");
         this.skipBtn = document.getElementById('skip');
         this.resetBtn = document.getElementById('reset');
         this.progressRing = document.querySelector('.progress-ring circle');
@@ -58,6 +59,9 @@ class PomodoroTimer {
     }
 
     setupEventListeners() {
+        if (this.circleBtn ) {
+            this.circleBtn .addEventListener('click', () => this.toggleTimer());
+        }
         // Timer controls
         if (this.startBtn) {
             this.startBtn.addEventListener('click', () => this.toggleTimer());

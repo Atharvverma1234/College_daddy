@@ -44,7 +44,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: ${{ github.event.pull_request.number }},
-              labels: ['awaiting review', 'contribution']
+              labels: ['awaiting review', 'wocs']
             })
 
       - name: Add thank-you comment when merged

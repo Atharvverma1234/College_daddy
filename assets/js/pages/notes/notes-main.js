@@ -128,3 +128,42 @@ function displayMaterials(semesterId, branchId, subjectId) {
     navigationState.subject = subjectId;
     updateBreadcrumb();
 }
+
+// Function to safely add new material and prevent duplicates
+function addMaterial(semesterId, branchName, subjectName, newMaterial) {
+    // Find the correct subject in the data
+    const semester = window.notesData.semesters.find(s => s.id === semesterId);
+    if (!semester) {
+        showError('Semester not found.');
+        return;
+    }
+
+    const branch = semester.branches.find(b => b.name.toLowerCase() === branchName.toLowerCase() || b.id.toLowerCase() === branchName.toLowerCase());
+    if (!branch) {
+        showError('Branch not found.');
+        return;
+    }
+
+    const subject = branch.subjects.find(s => s.name.toLowerCase() === subjectName.toLowerCase() || s.id.toLowerCase() === subjectName.toLowerCase());
+    if (!subject) {
+        showError('Subject not found.');
+        return;
+    }
+
+    // Check for duplicate material by title or file path
+    const duplicate = subject.materials.find(material =>
+        material.title.trim().toLowerCase() === newMaterial.title.trim().toLowerCase() ||
+        material.path.trim().toLowerCase() === newMaterial.path.trim().toLowerCase()
+    );
+
+    if (duplicate) {
+        showError(`Duplicate file "${newMaterial.title}" detected. Upload skipped.`);
+        return;
+    }
+
+    // If not duplicate, add it safely
+    subject.materials.push(newMaterial);
+
+    // Optionally save or update JSON file (depends on backend)
+    console.log(`Added material "${newMaterial.title}" successfully.`);
+}

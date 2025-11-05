@@ -104,6 +104,14 @@ function initFeatureCards() {
 // Initialize ripple effect for feedback link
 function initFeedbackLinkRipple() {
     const feedbackLink = document.querySelector('.feedback-link');
+     if (!feedbackLink) return;
+
+    // Avoid duplicate listeners
+    if (feedbackLink.dataset.listenerAdded === 'true') return;
+    feedbackLink.dataset.listenerAdded = 'true';
+
+    console.log("Feedback listener added!");
+
 
     feedbackLink.addEventListener('click', (e) => {
         const ripple = document.createElement('div');

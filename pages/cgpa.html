@@ -68,38 +68,54 @@
 
     <main class="container">
         <!-- Existing CGPA Calculator Section -->
-        <section id="cgpa-calculator">
-            <h1>
-                <i class="fas fa-calculator"></i>
-                Enhanced CGPA Calculator
-            </h1>
+         <section id="cgpa-calculator" class="glass-card">
+            <div class="section-header">
+                <div class="icon-wrapper">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h1>Enhanced CGPA Calculator</h1>
+                <div class="header-decoration"></div>
+            </div>
             
             <form id="cgpaForm" onsubmit="event.preventDefault(); calculate();">
-                <!-- Existing form inputs -->
-                <div class="input-group">
-                    <label for="currentCGPA">Current CGPA</label>
-                    <div class="input-wrapper">
-                        <input type="number" id="currentCGPA" placeholder="Enter current CGPA" step="0.01" min="0" max="10" required>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="currentCGPA">
+                            <i class="fas fa-chart-line"></i>
+                            Current CGPA
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="currentCGPA" placeholder="Enter current CGPA" step="0.01" min="0" max="10" required>
+                            <div class="input-decoration"></div>
+                        </div>
                         <div class="tooltip">
                             <i class="fas fa-question-circle" title="Enter your current CGPA (0-10)"></i>
                         </div>
                     </div>
-                </div>
 
-                <div class="input-group">
-                    <label for="completedSem">Completed Semesters</label>
-                    <div class="input-wrapper">
-                        <input type="number" id="completedSem" placeholder="Number of semesters done" min="1" max="7" required>
+                    <div class="input-group">
+                        <label for="completedSem">
+                            <i class="fas fa-calendar-alt"></i>
+                            Completed Semesters
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="completedSem" placeholder="Number of semesters done" min="1" max="7" required>
+                            <div class="input-decoration"></div>
+                        </div>
                         <div class="tooltip">
                             <i class="fas fa-question-circle" title="Enter number of completed semesters (1-7)"></i>
                         </div>
                     </div>
-                </div>
 
-                <div class="input-group">
-                    <label for="targetCGPA">Target CGPA</label>
-                    <div class="input-wrapper">
-                        <input type="number" id="targetCGPA" placeholder="CGPA you want to achieve" step="0.01" min="0" max="10" required>
+                    <div class="input-group">
+                        <label for="targetCGPA">
+                            <i class="fas fa-bullseye"></i>
+                            Target CGPA
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="number" id="targetCGPA" placeholder="CGPA you want to achieve" step="0.01" min="0" max="10" required>
+                            <div class="input-decoration"></div>
+                        </div>
                         <div class="tooltip">
                             <i class="fas fa-question-circle" title="Enter your target CGPA (0-10)"></i>
                         </div>
@@ -107,8 +123,11 @@
                 </div>
 
                 <button type="submit" class="calculate-btn">
-                    <i class="fas fa-chart-line"></i>
-                    Calculate Required CGPA
+                    <span class="btn-content">
+                        <i class="fas fa-chart-line"></i>
+                        Calculate Required CGPA
+                    </span>
+                    <div class="btn-background"></div>
                 </button>
             </form>
             
@@ -117,10 +136,16 @@
             <div id="result" aria-live="polite">
                 <div class="result-grid">
                     <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
                         <div class="value" id="requiredCGPA">0.00</div>
                         <div class="label">Required CGPA per semester</div>
                     </div>
                     <div class="result-item">
+                        <div class="result-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
                         <div class="value" id="remainingSem">0</div>
                         <div class="label">Remaining Semesters</div>
                     </div>
@@ -242,15 +267,10 @@
                 <p class="tagline">Developed with students in mind, for students by a student.</p>
                 
                 <div class="social-links">
-                    <a href="https://www.instagram.com/collegedaddy.tech/" target="_blank" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <!-- LinkedIn link commented out
-                    <a href="https://www.linkedin.com/company/collegedaddy-tech/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/company/collegedaddy-tech" target="_blank" class="social-link" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    -->
-                    <a href="https://github.com/collegedaddy" target="_blank" class="social-link" aria-label="GitHub">
+                    <a href="https://github.com/mugenkyou/College_daddy" target="_blank" class="social-link" aria-label="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
