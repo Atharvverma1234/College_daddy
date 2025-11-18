@@ -36,7 +36,13 @@
   --card-hover: #f0f0f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --grid-pattern: radial-gradient(rgba(0, 102, 204, 0.05) 1px, transparent 1px);
+  
 }
+[data-theme="light"] .tagline strong {
+  color: #09325f; /* whatever color you want in light mode */
+}
+  
+
 
 /* Font Awesome icon fixes */
 i.fas,
@@ -329,6 +335,7 @@ body::before {
 
 /* 🌞 Light mode support from upstream */
 [data-theme="light"] .feature-card {
+  background-color: #7e9eab11 !important;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 102, 204, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
@@ -367,6 +374,7 @@ body::before {
 }
 
 [data-theme="light"] .feature-card:hover {
+  background-color: #f3f8ff;
   box-shadow: 0 15px 30px rgba(0, 102, 204, 0.15);
   background-color: rgba(255, 255, 255, 0.95);
 }
