@@ -225,9 +225,10 @@ body {
 }
 .footer {
     position: relative;
-    background-color: var(--footer-bg);
+    width: 100vw;
+    background-color: var(--bg-darker);
     color: var(--text-light);
-    padding: 3rem 1.5rem 1.5rem;
+    padding: 8rem 1.5rem 1.5rem;
     margin-top: 4rem;
 }
 .controls {
