@@ -1134,5 +1134,7 @@ input[type="checkbox"]:checked::after {
     font-size: 12px;
   }
 }
-
+#faq h2::after {
+    display: none !important;
+}
 
