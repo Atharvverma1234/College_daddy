@@ -31,8 +31,8 @@
         <meta property="og:site_name" content="College Daddy">
     
         <!-- Stylesheets -->
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/navigation.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../assets/css/cgpa.css">
     
@@ -42,7 +42,7 @@
     
         <!-- Scripts -->
         <script src="../assets/js/components/navigation.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
         <script src="../assets/js/pages/cgpa.js" defer></script>
         <!-- Theme initialization script - runs before page render to prevent flash -->
@@ -59,7 +59,7 @@
     </head>
     
 <body>
-        <header>
+    <header>
         <div class="nav-container">
             <a href="../index.html" class="logo" aria-label="College Daddy Home">
                 <i class="fas fa-graduation-cap"></i>
@@ -106,10 +106,13 @@
                         </label>
                         <div class="input-wrapper">
                             <input type="number" id="currentCGPA" placeholder="Enter current CGPA" step="0.01" min="0" max="10" required>
+                            
+                            <div class="tooltip">
+                                <i class="fas fa-question-circle"></i>
+                                <span class="tooltiptext">Enter your current CGPA (0-10)</span>
+                            </div>
+                            
                             <div class="input-decoration"></div>
-                        </div>
-                        <div class="tooltip">
-                            <i class="fas fa-question-circle" title="Enter your current CGPA (0-10)"></i>
                         </div>
                     </div>
 
@@ -120,10 +123,13 @@
                         </label>
                         <div class="input-wrapper">
                             <input type="number" id="completedSem" placeholder="Number of semesters done" min="1" max="7" required>
+                            
+                            <div class="tooltip">
+                                <i class="fas fa-question-circle"></i>
+                                <span class="tooltiptext">Enter number of completed semesters (1-7)</span>
+                            </div>
+
                             <div class="input-decoration"></div>
-                        </div>
-                        <div class="tooltip">
-                            <i class="fas fa-question-circle" title="Enter number of completed semesters (1-7)"></i>
                         </div>
                     </div>
 
@@ -134,10 +140,13 @@
                         </label>
                         <div class="input-wrapper">
                             <input type="number" id="targetCGPA" placeholder="CGPA you want to achieve" step="0.01" min="0" max="10" required>
+                            
+                            <div class="tooltip">
+                                <i class="fas fa-question-circle"></i>
+                                <span class="tooltiptext">CGPA you want to achieve</span>
+                            </div>
+
                             <div class="input-decoration"></div>
-                        </div>
-                        <div class="tooltip">
-                            <i class="fas fa-question-circle" title="Enter your target CGPA (0-10)"></i>
                         </div>
                     </div>
                 </div>
@@ -306,8 +315,7 @@
             <div class="footer-section">
                 <h3>Connect</h3>
                 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSciD1CUiYUpiz4mtQSTYG9XeCRyG3CEhr9GNL03WxmRbFOgkw/viewform?usp=dialog" target="_blank" class="feedback-link">Send Feedback to College Daddy</a></p>
-                <p><!-- Follow our journey on <a href="https://www.linkedin.com/company/collegedaddy-tech/" target="_blank" style="color: var(--primary-color); text-decoration: none;">LinkedIn</a> for updates and resources. -->
-Follow our journey on social media for updates and resources.</p>
+                <p>Follow our journey on social media for updates and resources.</p>
             </div>
         </div>
         
@@ -317,8 +325,3 @@ Follow our journey on social media for updates and resources.</p>
     </footer>
 </body>
 </html>
-
-
-
-
-

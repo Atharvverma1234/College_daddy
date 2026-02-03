@@ -397,7 +397,7 @@ body {
 
 .input-wrapper input {
     width: 100%;
-    padding: 1rem 1.25rem;
+    padding: 1rem 3rem 1rem 1.25rem;
     border: 2px solid transparent;
     border-radius: 12px;
     background-color: var(--input-bg);
@@ -445,11 +445,48 @@ body {
 
 .tooltip {
     position: absolute;
-    right: 10px;
+    right: 20px; 
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-muted);
     cursor: help;
+    z-index: 10;
+}
+
+.tooltip .tooltiptext, .tooltip span {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 100;
+    bottom: 150%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    font-size: 0.9rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.tooltip .tooltiptext::after, .tooltip span::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext, .tooltip:hover span {
+    visibility: visible;
+    opacity: 1;
 }
 
 /*** Calculate Button ***/
@@ -1333,3 +1370,29 @@ body {
     background: var(--primary-hover);
 }
 
+.input-group:last-of-type .tooltip .tooltiptext {
+    left: auto !important;     
+    right: -10px !important;   
+    transform: none !important; 
+    width: auto !important;    
+    white-space: nowrap;       
+    min-width: 180px;          
+}
+
+.input-group:last-of-type .tooltip .tooltiptext::after {
+    left: auto !important;
+    right: 15px !important;    
+    margin-left: 0 !important;
+}
+
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
