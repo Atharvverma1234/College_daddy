@@ -360,10 +360,10 @@ Follow our journey on social media for updates and resources.</p>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 College Daddy. All rights reserved. Developed by <span class="developer-name">Sachin</span></p>
+            <p>&copy;  <span id="year"></span> College Daddy. All rights reserved. Developed by <span class="developer-name">Sachin</span></p>
         </div>
     </footer>
-
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
     <script src="../assets/js/components/navigation.js" defer></script>
     <script src="../assets/js/pages/ia.js"></script>
     
