@@ -11,67 +11,155 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-
     steps:
-      - name: Add comment when PR is opened
-        if: github.event.action == 'opened'
-        uses: peter-evans/create-or-update-comment@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            Thank you for contributing to College Daddy.
-
-            Your pull request has been received and is currently under review.
-
-            Before final approval, please ensure that:
-
-            - You have followed the project's contribution guidelines.
-
-            - Any related issues are linked in the PR description.
-
-            - All changes have been verified locally.
-
-            We appreciate your effort in improving the project. Your contribution helps us build a better experience for students.
-
-      - name: Add PR labels on open
+      - name: Add comment and labels when PR is opened
         if: github.event.action == 'opened'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.issues.addLabels({
+            const prNumber = context.payload.pull_request.number;
+            const prBody = context.payload.pull_request.body || '';
+            
+            // Extract issue numbers from PR body (supports #123, fixes #123, closes #123, resolves #123, etc.)
+            const issuePattern = /(close[sd]?|fix(e[sd])?|resolve[sd]?)\s*#(\d+)|#(\d+)/gi;
+            const matches = [...prBody.matchAll(issuePattern)];
+            const issueNumbers = [...new Set(matches.map(m => m[3] || m[4]).filter(Boolean))];
+            
+            let allLabels = new Set(['awaiting review', 'apertre3.0']);
+            let linkedIssuesInfo = [];
+            
+            // Fetch labels from each linked issue
+            for (const issueNumber of issueNumbers) {
+              try {
+                const issue = await github.rest.issues.get({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: parseInt(issueNumber)
+                });
+                
+                const issueLabels = issue.data.labels.map(label => 
+                  typeof label === 'string' ? label : label.name
+                );
+                
+                linkedIssuesInfo.push({
+                  number: issueNumber,
+                  title: issue.data.title,
+                  labels: issueLabels
+                });
+                
+                // Add issue labels to PR
+                issueLabels.forEach(label => allLabels.add(label));
+              } catch (error) {
+                console.log(`Could not fetch issue #${issueNumber}: ${error.message}`);
+              }
+            }
+            
+            // Apply all collected labels to PR
+            if (allLabels.size > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                labels: Array.from(allLabels)
+              });
+            }
+            
+            // Create professional comment
+            let commentBody = `## Pull Request Received\n\n`;
+            commentBody += `Thank you for your contribution to **College Daddy**. Your pull request has been received and is currently under review.\n\n`;
+            
+            if (linkedIssuesInfo.length > 0) {
+              commentBody += `### Linked Issues\n\n`;
+              commentBody += `This pull request addresses the following issue(s):\n\n`;
+              
+              for (const issue of linkedIssuesInfo) {
+                commentBody += `- **Issue #${issue.number}**: ${issue.title}\n`;
+                if (issue.labels.length > 0) {
+                  commentBody += `  - Labels inherited: \`${issue.labels.join('`, `')}\`\n`;
+                }
+              }
+              commentBody += `\n`;
+            }
+            
+            commentBody += `### Pre-Merge Checklist\n\n`;
+            commentBody += `Please ensure the following requirements are met before final approval:\n\n`;
+            commentBody += `- [ ] Changes adhere to the project's contribution guidelines\n`;
+            commentBody += `- [ ] Related issues are properly referenced in the PR description\n`;
+            commentBody += `- [ ] All modifications have been tested and verified locally\n`;
+            commentBody += `- [ ] Code follows established style and formatting standards\n`;
+            commentBody += `- [ ] Documentation has been updated where necessary\n\n`;
+            
+            commentBody += `### Labels Applied\n\n`;
+            commentBody += `The following labels have been assigned to this pull request:\n`;
+            commentBody += Array.from(allLabels).map(label => `- \`${label}\``).join('\n');
+            commentBody += `\n\n`;
+            
+            commentBody += `---\n\n`;
+            commentBody += `Our team will review your submission shortly. We appreciate your effort in improving the platform for students.\n\n`;
+            commentBody += `If you have any questions or require clarification, please feel free to comment below.`;
+            
+            await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ github.event.pull_request.number }},
-              labels: ['awaiting review', 'apertre3.0']
-            })
+              issue_number: prNumber,
+              body: commentBody
+            });
 
       - name: Add thank-you comment when merged
         if: github.event.action == 'closed' && github.event.pull_request.merged == true
-        uses: peter-evans/create-or-update-comment@v3
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.pull_request.number }}
-          body: |
-            🎉 **Your pull request has been successfully merged!**
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const contributor = context.payload.pull_request.user.login;
+            
+            const commentBody = `## Pull Request Merged Successfully\n\n` +
+              `**Contributor**: @${contributor}\n\n` +
+              `Your pull request has been successfully merged into the main codebase. ` +
+              `Thank you for your valuable contribution to **College Daddy**.\n\n` +
+              `### Impact\n\n` +
+              `Your changes are now part of the production environment and will benefit students using the platform.\n\n` +
+              `### Next Steps\n\n` +
+              `We encourage you to:\n\n` +
+              `- Star the repository to support the project's visibility\n` +
+              `- Watch for updates and participate in future discussions\n` +
+              `- Continue contributing to enhance the platform\n\n` +
+              `---\n\n` +
+              `We value your commitment to improving educational technology and look forward to your continued involvement in the project.`;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: commentBody
+            });
 
-            Thank you for contributing to College Daddy — every improvement helps enhance the platform's experience for students.
-
-            ⭐ If you haven't already, please consider starring the repository to support the project and its community.
-
-            🚀 We look forward to your next contribution! 
-
-      - name: Remove awaiting review label when merged
+      - name: Update labels when merged
         if: github.event.action == 'closed' && github.event.pull_request.merged == true
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            github.rest.issues.removeLabel({
+            const prNumber = context.payload.pull_request.number;
+            
+            // Remove 'awaiting review' label
+            try {
+              await github.rest.issues.removeLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                name: 'awaiting review'
+              });
+            } catch (error) {
+              console.log(`Label 'awaiting review' not found or already removed`);
+            }
+            
+            // Add 'mugenkyou' label
+            await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ github.event.pull_request.number }},
-              name: 'awaiting review'
-            })
-
+              issue_number: prNumber,
+              labels: ['mugenkyou']
+            });
