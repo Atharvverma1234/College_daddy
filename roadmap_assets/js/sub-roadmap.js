@@ -1,208 +1,164 @@
-// Navigation menu toggle
-const menuButton = document.querySelector('.menu-button');
-const navLinks = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', () => {
+    // Navigation Menu Logic
+    const menuButton = document.querySelector('.menu-button');
+    const navLinks = document.querySelector('.nav-links');
 
-menuButton.addEventListener('click', () => {
-    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-    menuButton.setAttribute('aria-expanded', !expanded);
-    navLinks.classList.toggle('active');
-});
+    if (menuButton && navLinks) {
+        menuButton.addEventListener('click', () => {
+            const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+            menuButton.setAttribute('aria-expanded', !expanded);
+            navLinks.classList.toggle('active');
+        });
 
-// Close menu when clicking outside
-document.addEventListener('click', (event) => {
-    if (!event.target.closest('.nav-container')) {
-        menuButton.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('active');
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.nav-container')) {
+                menuButton.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+            }
+        });
     }
-});
 
-// Success Modal Elements
-const modalOverlay = document.querySelector('.modal-overlay');
-const modalCloseBtn = document.querySelector('.modal-btn');
-
-if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', () => {
-        modalOverlay.classList.remove('active');
-    });
-}
-
-// Handle checkbox interactions and progress bars
-document.querySelectorAll('.roadmap-section').forEach(section => {
-    const headingCheckbox = section.querySelector('.heading-checkbox');
-    const subheadingCheckboxes = section.querySelectorAll('.subheading-checkbox');
-    const progressBar = section.querySelector('.progress-bar');
-    const sectionId = section.querySelector('h2 span').textContent.trim();
-
-    // Update progress bar
-    const updateProgress = (isInitialLoad = false) => {
-        const totalCheckboxes = subheadingCheckboxes.length;
-        const checkedCheckboxes = Array.from(subheadingCheckboxes).filter(checkbox => checkbox.checked).length;
-        const progress = (checkedCheckboxes / totalCheckboxes) * 100;
-        progressBar.style.width = `${progress}%`;
-        
-        // Update heading checkbox based on subheadings
-        headingCheckbox.checked = checkedCheckboxes === totalCheckboxes;
-        headingCheckbox.indeterminate = checkedCheckboxes > 0 && checkedCheckboxes < totalCheckboxes;
-
-        // Trigger Success (Confetti + Modal) only on user interaction, not page load
-        if (progress === 100 && !isInitialLoad && section.dataset.completed !== 'true') {
-            section.dataset.completed = 'true';
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 150,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                    colors: ['#009dff', '#00ff88', '#ffffff']
-                });
-            }
-            modalOverlay.classList.add('active');
-        } else if (progress < 100) {
-            section.dataset.completed = 'false';
-        }
-
-        // Save progress to localStorage
-        saveProgress(section);
-    };
-
-    // Heading checkbox event
-    headingCheckbox.addEventListener('change', () => {
-        subheadingCheckboxes.forEach(checkbox => {
-            checkbox.checked = headingCheckbox.checked;
-        });
-        updateProgress();
-    });
-
-    // Subheading checkboxes events
-    subheadingCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
-            updateProgress();
-
-            // Add animation class to progress bar
-            progressBar.classList.add('progress-animated');
-            setTimeout(() => {
-                progressBar.classList.remove('progress-animated');
-            }, 300);
-
-            // Trigger haptic feedback if supported
-            if ('vibrate' in navigator) {
-                navigator.vibrate(50);
-            }
-        });
-
-        // Add keyboard support
-        checkbox.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                checkbox.checked = !checkbox.checked;
-                updateProgress();
-            }
+    // Toggle Topic Cards
+    const topicCards = document.querySelectorAll('.topic-card');
+    topicCards.forEach(card => {
+        const header = card.querySelector('.topic-header');
+        header.addEventListener('click', () => {
+            card.classList.toggle('expanded');
         });
     });
 
-    // Save progress to localStorage
-    const saveProgress = (section) => {
-        const progress = {
-            heading: headingCheckbox.checked,
-            subheadings: Array.from(subheadingCheckboxes).map(checkbox => checkbox.checked)
-        };
-        localStorage.setItem(`roadmap-progress-${sectionId}`, JSON.stringify(progress));
-    };
+    // Tab Switching Logic
+    const topicContents = document.querySelectorAll('.topic-content');
+    topicContents.forEach(content => {
+        const tabs = content.querySelectorAll('.tab-btn');
+        const bundles = content.querySelectorAll('.bundle');
 
-    // Load saved progress
-    const loadProgress = () => {
-        const savedProgress = localStorage.getItem(`roadmap-progress-${sectionId}`);
-        
-        if (savedProgress) {
-            const progress = JSON.parse(savedProgress);
-            headingCheckbox.checked = progress.heading;
-            subheadingCheckboxes.forEach((checkbox, index) => {
-                checkbox.checked = progress.subheadings[index];
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                // Remove active class from all tabs in this topic
+                tabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                e.target.classList.add('active');
+
+                // Hide all bundles
+                bundles.forEach(b => b.classList.remove('active'));
+
+                // Show corresponding bundle
+                const level = e.target.dataset.level;
+                const topicCard = content.closest('.topic-card');
+                const topicId = topicCard.dataset.topic;
+                const targetBundle = content.querySelector(`#${topicId}-${level}`);
+
+                if (targetBundle) {
+                    targetBundle.classList.add('active');
+                }
             });
-            updateProgress(true); // Pass true to prevent modal popups on refresh
+        });
+    });
+
+    // Progress Tracking Logic
+    const updateProgress = (topicCard) => {
+        const checkboxes = topicCard.querySelectorAll('.status-check');
+        const checked = topicCard.querySelectorAll('.status-check:checked');
+        const progressBar = topicCard.querySelector('.progress-bar');
+        const progressText = topicCard.querySelector('.progress-text');
+
+        if (checkboxes.length > 0) {
+            const percentage = Math.round((checked.length / checkboxes.length) * 100);
+            progressBar.style.width = `${percentage}%`;
+            progressText.textContent = `${percentage}% Completed`;
+
+            // Save to localStorage
+            const topicId = topicCard.dataset.topic;
+            const checkedIds = Array.from(checked).map(cb => cb.dataset.id);
+            localStorage.setItem(`dsa-progress-${topicId}`, JSON.stringify(checkedIds));
+
+            // Trigger Confetti if 100%
+            if (percentage === 100) {
+                if (typeof confetti === 'function') {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
+                }
+            }
         }
     };
 
-    // Initialize progress on page load
-    loadProgress();
-});
+    // Initialize Checkboxes and Progress
+    const checkboxes = document.querySelectorAll('.status-check');
+    checkboxes.forEach(cb => {
+        cb.addEventListener('change', (e) => {
+            const topicCard = e.target.closest('.topic-card');
+            updateProgress(topicCard);
+        });
+    });
 
-// Add smooth scrolling to sections
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const section = document.querySelector(href);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
+    // Load Progress from LocalStorage
+    topicCards.forEach(card => {
+        const topicId = card.dataset.topic;
+        const savedProgress = JSON.parse(localStorage.getItem(`dsa-progress-${topicId}`)) || [];
+
+        savedProgress.forEach(id => {
+            const checkbox = card.querySelector(`.status-check[data-id="${id}"]`);
+            if (checkbox) {
+                checkbox.checked = true;
             }
-        }
+        });
+        updateProgress(card);
     });
-});
 
-// Add intersection observer for scroll animations
-const sections = document.querySelectorAll('.roadmap-section');
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -10% 0px'
-};
+    // Solve Modal Logic
+    window.openSolveModal = (title, url) => {
+        const modal = document.getElementById('solve-modal');
+        const modalTitle = document.getElementById('solve-problem-title');
+        const iframe = document.getElementById('leetcode-frame');
 
-const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            sectionObserver.unobserve(entry.target);
+        if (modal && modalTitle && iframe) {
+            modalTitle.textContent = title;
+            iframe.src = url;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling background
         }
-    });
-}, observerOptions);
+    };
 
-sections.forEach(section => {
-    sectionObserver.observe(section);
-});
+    window.closeSolveModal = () => {
+        const modal = document.getElementById('solve-modal');
+        const iframe = document.getElementById('leetcode-frame');
 
-// Add resize handler for mobile menu
-let resizeTimer;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        if (window.innerWidth > 768) {
-            navLinks.classList.remove('active');
-            menuButton.setAttribute('aria-expanded', 'false');
+        if (modal) {
+            modal.classList.remove('show');
+            if (iframe) iframe.src = ''; // Clear src to stop video/loading
+            document.body.style.overflow = ''; // Restore scrolling
         }
-    }, 250);
-});
+    };
 
-const feedbackLink = document.querySelector('.feedback-link');
-
-feedbackLink.addEventListener('click', (e) => {
-    const ripple = document.createElement('div');
-    ripple.style.position = 'absolute';
-    ripple.style.borderRadius = '50%';
-    ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
-    ripple.style.width = '20px';
-    ripple.style.height = '20px';
-    ripple.style.transform = 'translate(-50%, -50%)';
-    ripple.style.animation = 'ripple 0.6s linear';
-    ripple.style.left = `${e.clientX - e.target.offsetLeft}px`;
-    ripple.style.top = `${e.clientY - e.target.offsetTop}px`;
-
-    feedbackLink.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600);
-});
-
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes ripple {
-        0% {
-            width: 0;
-            height: 0;
-            opacity: 0.5;
-        }
-        100% {
-            width: 200px;
-            height: 200px;
-            opacity: 0;
-        }
+    // Close modal when clicking outside
+    const modal = document.getElementById('solve-modal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                window.closeSolveModal();
+            }
+        });
     }
-`;
-document.head.appendChild(style);
+
+    // Ripple Effect for Buttons (Optional Polish)
+    document.querySelectorAll('.solve-btn, .tab-btn, .expand-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            this.appendChild(ripple);
+
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+});
