@@ -847,24 +847,3 @@ body::before {
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) var(--bg-darker);
 }
-
-#scrollToTopBtn { 
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background-color: transparent;
-  color: rgb(255, 255, 255);
-  border: 2px solid rgb(10, 137, 241); /* <-- border added */
-  padding: 7px 15px;
-  font-size: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none; /* Hidden by default */
-  z-index: 999;
-  transition: opacity 0.3s ease;
-}
-
-
-#scrollToTopBtn:hover {
-  opacity: 0.8;
-}
