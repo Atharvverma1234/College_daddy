@@ -6,7 +6,7 @@
     margin: 0 auto;
     padding: 40px 20px;
     min-height: calc(100vh - 200px);
-    color: #ffffff;
+    color: var(--text-light);
 }
 
 /* Page Header */
@@ -17,7 +17,7 @@
 
 .progress-header h1 {
     font-size: 2.5rem;
-    color: #00b8ff;
+    color: var(--primary-color);
     margin-bottom: 12px;
     font-weight: 700;
     display: flex;
@@ -31,7 +31,7 @@
 }
 
 .progress-header .subtitle {
-    color: #888888;
+    color: var(--text-gray);
     font-size: 1.125rem;
     margin: 0;
 }
@@ -41,10 +41,10 @@
     display: flex;
     gap: 12px;
     margin-bottom: 40px;
-    background: #0a0a0a;
+    background: var(--bg-darker);
     padding: 8px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
 }
 
 .tab-btn {
@@ -53,7 +53,7 @@
     background: transparent;
     border: none;
     border-radius: 8px;
-    color: #888888;
+    color: var(--text-gray);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -65,14 +65,14 @@
 }
 
 .tab-btn:hover {
-    background: rgba(0, 184, 255, 0.1);
-    color: #00b8ff;
+    background: var(--shadow-color);
+    color: var(--primary-color);
 }
 
 .tab-btn.active {
-    background: rgba(0, 184, 255, 0.15);
-    color: #00b8ff;
-    border: 1px solid rgba(0, 184, 255, 0.3);
+    background: var(--shadow-color);
+    color: var(--primary-color);
+    border: 1px solid hsla(var(--primary-color-hsl), 0.3);
 }
 
 .tab-btn i {
@@ -103,8 +103,8 @@
 }
 
 .stat-card {
-    background: #181818;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
     display: flex;
@@ -115,8 +115,8 @@
 }
 
 .stat-card:hover {
-    background: #1a1a1a;
-    border-color: rgba(0, 184, 255, 0.4);
+    background: var(--card-bg-hover);
+    border-color: var(--primary-color);
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 157, 255, 0.3);
 }
@@ -132,7 +132,7 @@
 
 .stat-icon {
     font-size: 2.5rem;
-    color: #00b8ff;
+    color: var(--primary-color);
     min-width: 50px;
     text-align: center;
 }
@@ -148,7 +148,7 @@
 .stat-value {
     font-size: 2rem;
     font-weight: 700;
-    color: #00b8ff;
+    color: var(--primary-color);
     line-height: 1.2;
     margin-bottom: 4px;
 }
@@ -159,7 +159,7 @@
 
 .stat-label {
     font-size: 0.875rem;
-    color: #888888;
+    color: var(--text-gray);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 500;
@@ -167,8 +167,8 @@
 
 /* Progress Section */
 .progress-section {
-    background: #181818;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 24px;
@@ -180,13 +180,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
-    color: #ffffff;
+    color: var(--text-light);
     font-weight: 500;
     font-size: 1rem;
 }
 
 .progress-percent {
-    color: #00b8ff;
+    color: var(--primary-color);
     font-weight: 700;
     font-size: 1.25rem;
 }
@@ -194,7 +194,7 @@
 .progress-bar {
     width: 100%;
     height: 14px;
-    background: #0a0a0a;
+    background: var(--bg-darker);
     border-radius: 7px;
     overflow: hidden;
     position: relative;
@@ -202,7 +202,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #009dff, #00b8ff, #00d4ff);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), #00d4ff);
     border-radius: 7px;
     transition: width 0.5s ease;
     box-shadow: 0 0 12px rgba(0, 184, 255, 0.5);
@@ -210,14 +210,14 @@
 
 /* Motivation Card */
 .motivation-card {
-    background: linear-gradient(135deg, rgba(0, 184, 255, 0.1), rgba(0, 157, 255, 0.1));
-    border: 1px solid rgba(0, 184, 255, 0.3);
+    background: linear-gradient(135deg, var(--shadow-color), rgba(var(--primary-color), 0.05));
+    border: 1px solid hsla(var(--primary-color-hsl), 0.3);
     border-radius: 12px;
     padding: 20px;
     display: flex;
     align-items: center;
     gap: 16px;
-    color: #ffffff;
+    color: var(--text-light);
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 32px;
@@ -225,13 +225,13 @@
 
 .motivation-card i {
     font-size: 1.75rem;
-    color: #00b8ff;
+    color: var(--primary-color);
 }
 
 /* Calendar Card */
 .calendar-card {
-    background: #181818;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 32px;
     margin-bottom: 24px;
@@ -246,16 +246,16 @@
 }
 
 .calendar-header h2 {
-    color: #00b8ff;
+    color: var(--primary-color);
     font-size: 1.75rem;
     font-weight: 600;
     margin: 0;
 }
 
 .month-nav {
-    background: rgba(0, 184, 255, 0.1);
-    border: 1px solid rgba(0, 184, 255, 0.3);
-    color: #00b8ff;
+    background: var(--shadow-color);
+    border: 1px solid hsla(var(--primary-color-hsl), 0.3);
+    color: var(--primary-color);
     width: 44px;
     height: 44px;
     border-radius: 8px;
@@ -265,8 +265,8 @@
 }
 
 .month-nav:hover {
-    background: rgba(0, 184, 255, 0.2);
-    border-color: #00b8ff;
+    background: var(--shadow-color);
+    border-color: var(--primary-color);
     transform: scale(1.05);
 }
 
@@ -276,7 +276,7 @@
     gap: 8px;
     margin-bottom: 16px;
     text-align: center;
-    color: #888888;
+    color: var(--text-gray);
     font-size: 0.875rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -301,13 +301,13 @@
     font-size: 0.9rem;
     font-weight: 600;
     border: 2px solid transparent;
-    color: #ffffff;
+    color: var(--text-light);
     position: relative;
 }
 
 .calendar-day:not(.empty):hover {
     transform: scale(1.1);
-    border-color: #00b8ff;
+    border-color: var(--primary-color);
     z-index: 10;
 }
 
@@ -317,7 +317,7 @@
 }
 
 .calendar-day.intensity-0 {
-    background: #0a0a0a;
+    background: var(--bg-darker);
 }
 
 .calendar-day.intensity-1 {
@@ -346,7 +346,7 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    color: #888888;
+    color: var(--text-gray);
     font-size: 0.8rem;
 }
 
@@ -363,15 +363,15 @@
 
 /* Day Details */
 .day-details {
-    background: rgba(0, 184, 255, 0.1);
-    border: 1px solid rgba(0, 184, 255, 0.3);
+    background: var(--shadow-color);
+    border: 1px solid hsla(var(--primary-color-hsl), 0.3);
     border-radius: 16px;
     padding: 24px;
     margin-bottom: 32px;
 }
 
 .day-details h3 {
-    color: #00b8ff;
+    color: var(--primary-color);
     margin: 0 0 20px 0;
     font-size: 1.25rem;
 }
@@ -391,20 +391,20 @@
 .detail-value {
     font-size: 2rem;
     font-weight: 700;
-    color: #00b8ff;
+    color: var(--primary-color);
 }
 
 .detail-label {
     font-size: 0.875rem;
-    color: #888888;
+    color: var(--text-gray);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 /* Data Management */
 .data-management {
-    background: #181818;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 32px;
     margin-bottom: 32px;
@@ -412,7 +412,7 @@
 }
 
 .data-management h3 {
-    color: #00b8ff;
+    color: var(--primary-color);
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0 0 12px 0;
@@ -422,7 +422,7 @@
 }
 
 .management-desc {
-    color: #888888;
+    color: var(--text-gray);
     margin: 0 0 24px 0;
     font-size: 0.95rem;
 }
@@ -460,15 +460,15 @@
 }
 
 .mgmt-btn.import {
-    background: rgba(0, 184, 255, 0.1);
-    border-color: rgba(0, 184, 255, 0.3);
-    color: #00b8ff;
+    background: var(--shadow-color);
+    border-color: hsla(var(--primary-color-hsl), 0.3);
+    color: var(--primary-color);
     cursor: pointer;
 }
 
 .mgmt-btn.import:hover {
-    background: rgba(0, 184, 255, 0.2);
-    border-color: #00b8ff;
+    background: var(--shadow-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
 }
 
@@ -489,16 +489,16 @@
     align-items: flex-start;
     gap: 12px;
     padding: 16px;
-    background: rgba(0, 184, 255, 0.1);
-    border: 1px solid rgba(0, 184, 255, 0.3);
+    background: var(--shadow-color);
+    border: 1px solid hsla(var(--primary-color-hsl), 0.3);
     border-radius: 10px;
-    color: #888888;
+    color: var(--text-gray);
     font-size: 0.875rem;
     line-height: 1.6;
 }
 
 .data-notice i {
-    color: #00b8ff;
+    color: var(--primary-color);
     font-size: 1.125rem;
     margin-top: 2px;
 }
@@ -511,8 +511,8 @@
 }
 
 .info-card {
-    background: #181818;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     padding: 28px;
     transition: all 0.3s ease;
@@ -520,28 +520,28 @@
 }
 
 .info-card:hover {
-    background: #1a1a1a;
-    border-color: rgba(0, 184, 255, 0.4);
+    background: var(--card-bg-hover);
+    border-color: var(--primary-color);
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 157, 255, 0.3);
 }
 
 .info-card i {
     font-size: 2rem;
-    color: #00b8ff;
+    color: var(--primary-color);
     margin-bottom: 16px;
     display: block;
 }
 
 .info-card h4 {
-    color: #00b8ff;
+    color: var(--primary-color);
     font-size: 1.125rem;
     margin: 0 0 12px 0;
     font-weight: 600;
 }
 
 .info-card p {
-    color: #888888;
+    color: var(--text-gray);
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.6;

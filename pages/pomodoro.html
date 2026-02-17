@@ -71,15 +71,15 @@
         }
 
         .today-focus-card {
-            background: #181818;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 28px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .today-focus-card h2 {
-            color: #ffffff;
+            color: var(--text-light);
             font-size: 1.5rem;
             font-weight: 700;
             margin: 0 0 6px 0;
@@ -89,12 +89,12 @@
         }
 
         .today-focus-card h2 i {
-            color: #00b8ff;
+            color: var(--primary-color);
             font-size: 1.3rem;
         }
 
         .today-date {
-            color: #888888;
+            color: var(--text-gray);
             font-size: 0.95rem;
             margin-bottom: 20px;
         }
@@ -106,8 +106,8 @@
         }
 
         .focus-stat-card {
-            background: rgba(0, 157, 255, 0.08);
-            border: 1px solid rgba(0, 157, 255, 0.15);
+            background: var(--shadow-color);
+            border: 1px solid hsla(var(--primary-color-hsl), 0.2);
             border-radius: 16px;
             padding: 20px;
             text-align: center;
@@ -115,19 +115,19 @@
         }
 
         .focus-stat-card:hover {
-            background: rgba(0, 157, 255, 0.12);
+            background: var(--shadow-color);
             transform: translateY(-2px);
         }
 
         .focus-stat-card .focus-icon {
             font-size: 1.8rem;
-            color: #00b8ff;
+            color: var(--primary-color);
             margin-bottom: 10px;
         }
 
         .focus-stat-card .focus-label {
             font-size: 0.85rem;
-            color: #888888;
+            color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 6px;
@@ -136,20 +136,20 @@
         .focus-stat-card .focus-value {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #00b8ff;
+            color: var(--primary-color);
         }
 
         /* Streaks Card */
         .streaks-card {
-            background: #181818;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 28px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .streaks-card h2 {
-            color: #ffffff;
+            color: var(--text-light);
             font-size: 1.5rem;
             font-weight: 700;
             margin: 0 0 8px 0;
@@ -164,7 +164,7 @@
         }
 
         .streak-hint {
-            color: #888888;
+            color: var(--text-gray);
             font-size: 0.9rem;
             margin-bottom: 20px;
             display: flex;
@@ -206,7 +206,7 @@
 
         .streak-stat-card .streak-label {
             font-size: 0.85rem;
-            color: #888888;
+            color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 6px;
@@ -220,8 +220,8 @@
 
         /* Progress Bar Section */
         .progress-bar-card {
-            background: #181818;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 28px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -242,8 +242,8 @@
         }
 
         .summary-stat {
-            background: #181818;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 16px;
             padding: 18px;
             text-align: center;
@@ -251,14 +251,14 @@
         }
 
         .summary-stat:hover {
-            background: #1a1a1a;
-            border-color: rgba(0, 184, 255, 0.3);
+            background: var(--card-bg-hover);
+            border-color: var(--primary-color);
             transform: translateY(-2px);
         }
 
         .summary-stat .summary-label {
             font-size: 0.8rem;
-            color: #888888;
+            color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 8px;
@@ -267,33 +267,33 @@
         .summary-stat .summary-value {
             font-size: 1.4rem;
             font-weight: 700;
-            color: #00b8ff;
+            color: var(--primary-color);
         }
 
         /* Motivation Card */
         .motivation-card {
-            background: linear-gradient(135deg, rgba(0, 184, 255, 0.1), rgba(0, 157, 255, 0.05));
-            border: 1px solid rgba(0, 184, 255, 0.2);
+            background: linear-gradient(135deg, var(--shadow-color), rgba(var(--primary-color), 0.05));
+            border: 1px solid hsla(var(--primary-color-hsl), 0.2);
             border-radius: 16px;
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 16px;
-            color: #ffffff;
+            color: var(--text-light);
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* Day Details */
         .day-details {
-            background: rgba(0, 184, 255, 0.08);
-            border: 1px solid rgba(0, 184, 255, 0.2);
+            background: var(--shadow-color);
+            border: 1px solid hsla(var(--primary-color-hsl), 0.2);
             border-radius: 16px;
             padding: 24px;
         }
 
         .day-details h3 {
-            color: #00b8ff;
+            color: var(--primary-color);
             margin: 0 0 16px 0;
             font-size: 1.15rem;
         }
@@ -313,12 +313,12 @@
         .detail-value {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #00b8ff;
+            color: var(--primary-color);
         }
 
         .detail-label {
             font-size: 0.8rem;
-            color: #888888;
+            color: var(--text-gray);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
