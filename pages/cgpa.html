@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../assets/css/cgpa.css">
+    <link rel="stylesheet" href="../assets/css/cgpa-tracker.css">
 
     <!-- Preload Critical Resources -->
     <link rel="preload" href="../assets/css/cgpa.css" as="style">
@@ -52,6 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
     <script src="../assets/js/pages/cgpa.js" defer></script>
+    <script src="../assets/js/pages/cgpa-tracker.js" defer></script>
     <!-- Theme initialization script - runs before page render to prevent flash -->
     <script>
         (function () {
@@ -309,6 +311,75 @@
                 </div>
             </div>
         </section>
+
+        <!-- ===== CGPA Performance Tracker Section ===== -->
+        <section class="tracker-hero" style="margin-top: 3rem;">
+            <h1>CGPA Performance Tracker</h1>
+            <p class="tracker-subtitle">Enter your semester-wise SGPA to visualize your academic progress over time.</p>
+        </section>
+
+        <section class="tracker-section input-section" style="max-width:900px;margin:0 auto 1.5rem;">
+            <h2 class="section-title">Enter Semester SGPA</h2>
+            <p class="section-desc">Input your SGPA (0–10 scale) for each completed semester. The graph updates automatically.</p>
+            <div class="sgpa-grid" id="sgpaGrid"></div>
+            <div class="input-actions">
+                <button class="btn btn-primary" id="btnSave" title="Save data to browser">
+                    <span class="btn-icon">💾</span> Save Progress
+                </button>
+                <button class="btn btn-outline" id="btnClear" title="Clear all entries">
+                    <span class="btn-icon">🗑️</span> Reset All
+                </button>
+            </div>
+        </section>
+
+        <section class="tracker-section graph-section" id="graphSection" style="display:none;max-width:900px;margin:0 auto 1.5rem;">
+            <h2 class="section-title">Performance Graph</h2>
+            <p class="section-desc">SGPA and cumulative CGPA plotted across your semesters.</p>
+            <div class="graph-legend">
+                <span class="legend-item"><span class="legend-dot sgpa-dot"></span> SGPA (solid)</span>
+                <span class="legend-item"><span class="legend-dot cgpa-dot"></span> Cumulative CGPA (dashed)</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+                <div class="chart-tooltip" id="chartTooltip"></div>
+            </div>
+        </section>
+
+        <section class="tracker-section stats-section" id="statsSection" style="display:none;max-width:900px;margin:0 auto 1.5rem;">
+            <h2 class="section-title">Quick Stats</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Highest SGPA</span>
+                    <span class="stat-value" id="statHighest">—</span>
+                    <span class="stat-sub" id="statHighestSem"></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Lowest SGPA</span>
+                    <span class="stat-value" id="statLowest">—</span>
+                    <span class="stat-sub" id="statLowestSem"></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Current CGPA</span>
+                    <span class="stat-value accent" id="statCGPA">—</span>
+                    <span class="stat-sub" id="statCGPASub"></span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Trend</span>
+                    <span class="stat-value" id="statTrend">—</span>
+                    <span class="stat-sub" id="statTrendSub"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracker-section bar-section" id="barSection" style="display:none;max-width:900px;margin:0 auto 1.5rem;">
+            <h2 class="section-title">Semester Comparison</h2>
+            <p class="section-desc">Visual comparison of your SGPA across all semesters.</p>
+            <div class="bar-chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+        </section>
+        <!-- ===== End CGPA Performance Tracker ===== -->
+
         <!-- Related Tools Section -->
         <section class="related-tools">
             <h2>More College Daddy Academic Tools</h2>
