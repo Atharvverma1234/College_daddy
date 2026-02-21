@@ -7,11 +7,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="../css/sub-roadmap.css" rel="stylesheet"/>
 </head>
-
 <body>
     <header>
         <div class="nav-container">
-            <a aria-label="College Buddy Home" class="logo" href="index.html">
+            <a aria-label="College Daddy Home" class="logo" href="../../index.html">
                 <i class="fas fa-graduation-cap"></i>
                 <span>College Daddy</span>
             </a>
@@ -29,478 +28,308 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <h1>Mobile App Developer Roadmap</h1>
-        <div class="roadmap-sections">
-
-            <!-- Programming Fundamentals -->
-            <div class="roadmap-section">
-                <span class="section-badge">~4 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Programming Fundamentals
-                        <span class="badge badge-beginner">Beginner</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Master core programming concepts and languages for mobile development
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Java/Kotlin for Android</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Swift for iOS</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>JavaScript/TypeScript for Cross-Platform</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Dart for Flutter</span>
-                            </li>
-                        </ul>
-                    </div>
+    <section class="roadmap-hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Mobile App Developer<br>Professional Roadmap</h1>
+                <p>Build native and cross-platform mobile applications for iOS and Android using modern frameworks and tools.</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-value">24+</span><span class="stat-label">Weeks</span></div>
+                    <div class="stat-item"><span class="stat-value">7</span><span class="stat-label">Modules</span></div>
+                    <div class="stat-item"><span class="stat-value">Mid</span><span class="stat-label">Level</span></div>
                 </div>
             </div>
-
-            <!-- Frontend Development (UI/UX) -->
-            <div class="roadmap-section">
-                <span class="section-badge">~5 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Frontend Development (UI/UX)
-                        <span class="badge badge-beginner">Beginner</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Build beautiful and responsive mobile user interfaces
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>XML (for Android UI)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>SwiftUI (for iOS)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Jetpack Compose (Modern Android UI)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Flutter Widgets / React Native Components</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="hero-progress-card">
+                <div class="progress-header"><span>Overall Mastery</span><span id="global-progress-text">0%</span></div>
+                <div class="global-progress-bar"><div class="global-progress-fill" id="global-progress-fill"></div></div>
+                <a href="#module-1" class="continue-btn" id="resume-btn">Start Learning</a>
             </div>
-
-            <!-- Backend Development (Optional for Full Stack Apps) -->
-            <div class="roadmap-section">
-                <span class="section-badge">~4 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Backend Development (Optional)
-                        <span class="badge badge-intermediate">Intermediate</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Create server-side logic and APIs for full-stack mobile apps
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Node.js + Express.js</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Firebase (Firestore, Realtime Database)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>REST APIs & GraphQL</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile App Development Frameworks -->
-            <div class="roadmap-section">
-                <span class="section-badge">~6 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Mobile App Development Frameworks
-                        <span class="badge badge-intermediate">Intermediate</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Master native and cross-platform mobile development frameworks
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Android Development (Java/Kotlin)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>iOS Development (Swift)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Cross-Platform Development (Flutter, React Native)</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Databases & Storage -->
-            <div class="roadmap-section">
-                <span class="section-badge">~3 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Databases & Storage
-                        <span class="badge badge-intermediate">Intermediate</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Implement local and cloud data storage solutions
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>SQLite / Room DB</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Firebase Firestore</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Local Storage & Shared Preferences</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- State Management & Advanced Concepts -->
-            <div class="roadmap-section">
-                <span class="section-badge">~4 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        State Management & Advanced Concepts
-                        <span class="badge badge-advanced">Advanced</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Master advanced patterns for scalable mobile applications
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Provider, Riverpod, or Bloc (Flutter)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Redux (React Native)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Dependency Injection (Dagger Hilt, Koin)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Push Notifications & Background Services</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Deployment & App Stores -->
-            <div class="roadmap-section">
-                <span class="section-badge">~2 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Deployment & App Stores
-                        <span class="badge badge-advanced">Advanced</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Publish and distribute apps on major app stores
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Play Store & App Store Guidelines</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Code Signing & App Release</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Continuous Integration (CI/CD)</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projects -->
-            <div class="roadmap-section">
-                <span class="section-badge">~6 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Projects
-                        <span class="badge badge-advanced">Advanced</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Build real-world mobile apps for your portfolio
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Mini App (To-Do, Weather App)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Full-Scale App (E-Commerce, Social Media)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Open Source Contributions</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Job Preparation -->
-            <div class="roadmap-section">
-                <span class="section-badge">~3 WEEKS</span>
-                <div class="section-header">
-                    <div class="section-progress">
-                        <div class="progress-label">
-                            <span>Progress</span>
-                            <span>0%</span>
-                        </div>
-                        <div class="progress-container">
-                            <div class="progress-bar" style="width: 0%"></div>
-                        </div>
-                    </div>
-                    
-                    <h2 class="section-title">
-                        <input type="checkbox" onclick="event.stopPropagation()">
-                        Job Preparation
-                        <span class="badge badge-beginner">Beginner</span>
-                    </h2>
-                    
-                    <p class="section-description">
-                        Prepare for mobile developer interviews and job applications
-                    </p>
-                    
-                    <div class="section-content">
-                        <ul>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Resume & Portfolio (GitHub, Play Store Apps)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>DSA & Problem Solving (Leetcode)</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>System Design for Mobile Apps</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Interview Preparation</span>
-                            </li>
-                            <li>
-                                <input type="checkbox" onclick="event.stopPropagation()">
-                                <span>Networking & Job Applications</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </main>
+    </section>
+
+    <div class="dashboard-layout">
+        <aside class="roadmap-sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-map-signs"></i>
+                <span>Roadmap Modules</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#module-1" class="sidebar-link active"><i class="fas fa-code"></i> Programming Fundamentals</a>
+                <a href="#module-2" class="sidebar-link"><i class="fas fa-paint-brush"></i> UI/UX Basics</a>
+                <a href="#module-3" class="sidebar-link"><i class="fas fa-mobile-alt"></i> Native Development</a>
+                <a href="#module-4" class="sidebar-link"><i class="fas fa-layer-group"></i> Cross-Platform</a>
+                <a href="#module-5" class="sidebar-link"><i class="fas fa-database"></i> Backend & Storage</a>
+                <a href="#module-6" class="sidebar-link"><i class="fas fa-upload"></i> Deployment</a>
+                <a href="#module-7" class="sidebar-link"><i class="fas fa-briefcase"></i> Career Prep</a>
+            </nav>
+        </aside>
+
+        <div class="dashboard-content">
+            <div class="roadmap-sections">
+
+                <div class="roadmap-section" id="module-1">
+                    <span class="section-badge">~3 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            Programming Fundamentals
+                            <span class="badge badge-beginner">Beginner</span>
+                        </h2>
+                        <p class="section-description">Build the programming foundation needed for mobile app development</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Choose a Path: iOS (Swift), Android (Kotlin), or Cross-platform</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>OOP Concepts (Classes, Inheritance, Polymorphism)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Data Types, Functions & Control Flow</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Asynchronous Programming (async/await, callbacks)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Git & Version Control</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-section" id="module-2">
+                    <span class="section-badge">~2 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            UI/UX Design Basics
+                            <span class="badge badge-beginner">Beginner</span>
+                        </h2>
+                        <p class="section-description">Design intuitive and beautiful mobile interfaces following platform guidelines</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Mobile Design Principles (Typography, Color, Spacing)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>iOS Human Interface Guidelines</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Android Material Design Guidelines</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Wireframing with Figma / Sketch</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Responsive Layouts & Accessibility</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-section" id="module-3">
+                    <span class="section-badge">~6 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            Native Mobile Development
+                            <span class="badge badge-intermediate">Intermediate</span>
+                        </h2>
+                        <p class="section-description">Build native iOS or Android apps using Swift/Xcode or Kotlin/Android Studio</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>iOS: Swift & SwiftUI / UIKit</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>iOS: Navigation, TableViews, CollectionViews</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Android: Kotlin & Jetpack Compose / XML Layouts</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Android: Activities, Fragments & Navigation</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>State Management (ViewModel, LiveData / StateFlow)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Platform APIs (Camera, Location, Sensors)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-section" id="module-4">
+                    <span class="section-badge">~5 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            Cross-Platform Development
+                            <span class="badge badge-intermediate">Intermediate</span>
+                        </h2>
+                        <p class="section-description">Build once, deploy everywhere with Flutter or React Native</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Flutter: Dart Language & Widget Tree</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Flutter: State Management (Provider, Riverpod, BLoC)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>React Native: JSX, Components & Navigation</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>React Native: State Management (Redux, Zustand)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Platform-Specific Code & Native Modules</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-section" id="module-5">
+                    <span class="section-badge">~3 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            Backend Integration & Storage
+                            <span class="badge badge-intermediate">Intermediate</span>
+                        </h2>
+                        <p class="section-description">Connect your mobile app to backend services and manage data storage</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>REST API Integration & JSON Parsing</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Firebase (Auth, Firestore, Storage, Push Notifications)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Local Storage (SQLite, Realm, SharedPreferences)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Offline-First Architecture & Syncing</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-section" id="module-6">
+                    <span class="section-badge">~2 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            Testing & Deployment
+                            <span class="badge badge-advanced">Advanced</span>
+                        </h2>
+                        <p class="section-description">Test, optimize, and publish your apps to the App Store and Google Play</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Unit Tests & UI Testing (XCTest, Espresso)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Performance Optimization & Profiling</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>CI/CD for Mobile (Fastlane, GitHub Actions)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>App Store & Google Play Submission</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>App Monetization Strategies (IAP, Ads)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-section" id="module-7">
+                    <span class="section-badge">~2 WEEKS</span>
+                    <div class="section-header">
+                        <div class="section-progress">
+                            <div class="progress-label"><span>Progress</span><span>0%</span></div>
+                            <div class="progress-container"><div class="progress-bar" style="width: 0%"></div></div>
+                        </div>
+                        <h2 class="section-title">
+                            <input type="checkbox" onclick="event.stopPropagation()">
+                            Career Preparation
+                            <span class="badge badge-beginner">Beginner</span>
+                        </h2>
+                        <p class="section-description">Launch your mobile development career with a strong portfolio and interview skills</p>
+                        <div class="section-content">
+                            <ul>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Publish Apps to App Store / Play Store</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Build a Mobile Dev Portfolio (GitHub)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Freelancing Platforms (Upwork, Toptal)</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Interview Preparation & Coding Challenges</span></li>
+                                <li><input type="checkbox" onclick="event.stopPropagation()"><span>Networking & Communities (Reddit, Discord)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
-        <p>2025 College Daddy. All rights reserved. Developed by <span class="developer-name">Sachin</span></p>
-        <p class="tagline">*Developed with students in mind, for students by students*</p>
-        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSciD1CUiYUpiz4mtQSTYG9XeCRyG3CEhr9GNL03WxmRbFOgkw/viewform?usp=dialog" target="_blank" class="feedback-link">Feedback</a></p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>College Daddy</h3>
+                <p>Your ultimate companion for academic success.</p>
+                <p class="tagline">Developed with students in mind, for students by a student.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/collegedaddy-tech" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../../index.html">College Daddy Home</a></li>
+                    <li><a href="../../pages/cgpa.html">CGPA Calculator</a></li>
+                    <li><a href="../../pages/notes.html">Notes</a></li>
+                    <li><a href="../../pages/roadmap.html">Career Roadmaps</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSciD1CUiYUpiz4mtQSTYG9XeCRyG3CEhr9GNL03WxmRbFOgkw/viewform?usp=dialog" target="_blank" class="feedback-link">Send Feedback</a></p>
+                <p>Follow our journey on social media for updates and resources.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 College Daddy. All rights reserved. Developed by <span class="developer-name">Sachin</span></p>
+        </div>
     </footer>
 
     <script>
-    // Roadmap Collapsible Functionality
     document.addEventListener('DOMContentLoaded', function() {
-        const roadmapSections = document.querySelectorAll('.roadmap-section');
-        
-        roadmapSections.forEach(section => {
-            const header = section.querySelector('.section-header');
-            
-            header.addEventListener('click', function(e) {
-                if (e.target.type === 'checkbox') {
-                    return;
-                }
+        const STORAGE_KEY_PREFIX = 'mobile-dev-roadmap';
+        const sections = document.querySelectorAll('.roadmap-section');
+        sections.forEach((section, idx) => {
+            const moduleKey = STORAGE_KEY_PREFIX + '-module-' + (idx + 1);
+            const checkboxes = section.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach((cb, cbIdx) => {
+                if (localStorage.getItem(moduleKey + '-cb-' + cbIdx) === 'true') cb.checked = true;
+                cb.addEventListener('change', function() {
+                    localStorage.setItem(moduleKey + '-cb-' + cbIdx, cb.checked);
+                    updateModuleProgress(section);
+                    updateGlobalProgress();
+                });
+            });
+            updateModuleProgress(section);
+            section.querySelector('.section-header').addEventListener('click', function(e) {
+                if (e.target.type === 'checkbox') return;
                 section.classList.toggle('expanded');
             });
         });
-        
-        const checkboxes = document.querySelectorAll('.roadmap-section input[type="checkbox"]');
-        
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                updateProgress(this);
-            });
-            updateProgress(checkbox);
-        });
-        
-        function updateProgress(checkbox) {
-            const section = checkbox.closest('.roadmap-section');
-            if (!section) return;
-            
-            const allCheckboxes = section.querySelectorAll('input[type="checkbox"]');
-            const checkedBoxes = section.querySelectorAll('input[type="checkbox"]:checked');
-            
-            const total = allCheckboxes.length;
-            const checked = checkedBoxes.length;
-            const percentage = total > 0 ? Math.round((checked / total) * 100) : 0;
-            
-            const progressBar = section.querySelector('.progress-bar');
-            const progressText = section.querySelector('.progress-label span:last-child');
-            
-            if (progressBar) {
-                progressBar.style.width = percentage + '%';
-            }
-            
-            if (progressText) {
-                progressText.textContent = percentage + '%';
-            }
+        updateGlobalProgress();
+        function updateModuleProgress(section) {
+            const all = section.querySelectorAll('input[type="checkbox"]');
+            const checked = section.querySelectorAll('input[type="checkbox"]:checked');
+            const pct = all.length > 0 ? Math.round((checked.length / all.length) * 100) : 0;
+            const bar = section.querySelector('.progress-bar');
+            const text = section.querySelector('.progress-label span:last-child');
+            if (bar) bar.style.width = pct + '%';
+            if (text) text.textContent = pct + '%';
         }
+        function updateGlobalProgress() {
+            const all = document.querySelectorAll('.roadmap-section input[type="checkbox"]');
+            const checked = document.querySelectorAll('.roadmap-section input[type="checkbox"]:checked');
+            const pct = all.length > 0 ? Math.round((checked.length / all.length) * 100) : 0;
+            const fill = document.getElementById('global-progress-fill');
+            const text = document.getElementById('global-progress-text');
+            if (fill) fill.style.width = pct + '%';
+            if (text) text.textContent = pct + '%';
+            const btn = document.getElementById('resume-btn');
+            if (btn && pct > 0) btn.textContent = 'Continue Learning';
+        }
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => { if (window.scrollY >= section.offsetTop - 200) current = section.id; });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
     });
     </script>
-    
     <script src="../js/sub-roadmap.js"></script>
-    
-<script src="../../assets/js/components/back-to-top.js"></script>
+    <script src="../../assets/js/components/back-to-top.js"></script>
 </body>
 </html>
